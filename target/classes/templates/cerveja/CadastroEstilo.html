@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt"
+		xmlns="http://www.w3.org/1999/xhtml" 
+		xmlns:th="http://thymeleaf.org"
+		xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+		layout:decorator="'layout/LayoutPadrao'">
+<head>
+	<title>Cadastro de Estilo</title>
+</head>
+<body>
+		<!-- Section - meio da página -->
+		<section layout:fragment="conteudo">
+			<div class="page-header">
+				<div class="container-fluid">
+					<h1>
+						Cadastro de estilo
+					</h1>
+				</div>
+			</div>
+			
+			<div class="container-fluid">
+			
+						
+				<form method="POST" th:object="${cerveja}" class="form-vertical  js-form-loading">
+					
+					<div class="row">
+						<div class="col-sm-12 form-group">
+							<label for="nome">Nome</label>
+							<input id="nome" type="text" class="form-control"/>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<button class="btn  btn-primary" type="submit">Salvar</button>
+						<a href="pesquisa-produtos.html" class="btn  btn-default">Cancelar</a>
+						<a href="#" class="btn  btn-link  aw-btn-link-danger" onclick="excluir()">Excluir estilo</a>
+					</div>
+					
+				</form>
+			</div>
+	
+		</section>
+</body>
+</html>

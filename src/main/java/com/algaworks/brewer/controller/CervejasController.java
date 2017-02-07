@@ -22,7 +22,7 @@ public class CervejasController {
 	}
 	
 	@RequestMapping(value="/cerveja", method=RequestMethod.POST)
-	public String cadastrar(@Valid Cerveja cerveja, BindingResult result, Model model, RedirectAttributes attributes){
+	public String cadastroCerveja(@Valid Cerveja cerveja, BindingResult result, Model model, RedirectAttributes attributes){
 		if (result.hasErrors()){
 			return novo(cerveja);
 		}
@@ -31,8 +31,23 @@ public class CervejasController {
 		return "redirect:/cerveja";
 	}
 	
-	@RequestMapping("/cadastro")
-	public String cadastro(Cerveja cerveja){
-		return "cerveja/cadastro-produto";
+	@RequestMapping("/cliente")
+	public String cadastroCliente(Cerveja cerveja){
+		return "cerveja/CadastroCliente";
+	}
+	
+	@RequestMapping("/usuario")
+	public String cadastroUsuario(Cerveja cerveja){
+		return "cerveja/CadastroUsuario";
+	}
+	
+	@RequestMapping("/cidade")
+	public String cadastroCidade(Cerveja cerveja){
+		return "cerveja/CadastroCidade";
+	}
+	
+	@RequestMapping("/estilo")
+	public String cadastroEstilo(Cerveja cerveja){
+		return "cerveja/CadastroEstilo";
 	}
 }
