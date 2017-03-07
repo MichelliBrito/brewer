@@ -12,6 +12,9 @@
   	
  	<failOnMissingWebXml>false</failOnMissingWebXml>
  	
+ 	<flyway-maven-plugin.version>4.0.3</flyway-maven-plugin.version>
+ 	<mysql-connector-java.version>6.0.5</mysql-connector-java.version>
+ 	
  	<!-- Java -->
  	<java.version>1.8</java.version>
  	
@@ -32,6 +35,13 @@
  	
  	<!-- Thymeleaf -Layout Dialect -->
  	<thymeleaf-layout-dialect.version>2.0.0</thymeleaf-layout-dialect.version>
+ 	
+ 	<!-- Logging -->
+ 	<log4j.version>2.6</log4j.version>
+ 	<jcl-over-slf4j.version>1.7.21</jcl-over-slf4j.version>
+ 	
+ 	<!-- Hibernate -->
+ 	<hibernate.version>5.1.0.Final</hibernate.version>
   </properties>
   
   <build>
@@ -42,6 +52,15 @@
   			<configuration>
   				<source>${java.version}</source>
   				<target>${java.version}</target>
+  			</configuration>
+  		</plugin>
+  		
+  		<plugin>
+  			<groupId>org.flywaydb</groupId>
+  			<artifactId>flyway-maven-plugin</artifactId>
+  			<version>${flyway-maven-plugin.version}</version>
+  			<configuration>
+  				<driver>com.mysql.cj.jdbc.Driver</driver>
   			</configuration>
   		</plugin>
   	</plugins>
@@ -66,6 +85,12 @@
   		<groupId>org.springframework</groupId>
   		<artifactId>spring-webmvc</artifactId>
   		<scope>compile</scope>
+  		<exclusions>
+  			<exclusion>
+  				<groupId>commons-logging</groupId>
+  				<artifactId>commons-logging</artifactId>
+  			</exclusion>
+  		</exclusions>
   	</dependency>
   	
   	<!-- Servlet API -->
@@ -105,6 +130,55 @@
 		<artifactId>hibernate-validator</artifactId>
 		<version>${hibernate-validator.version}</version>
 		<scope>compile</scope>
+	</dependency>
+	
+	<!-- Logging -->
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-slf4j-impl</artifactId>
+		<version>${log4j.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-api</artifactId>
+		<version>${log4j.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.logging.log4j</groupId>
+		<artifactId>log4j-core</artifactId>
+		<version>${log4j.version}</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>jcl-over-slf4j</artifactId>
+		<version>${jcl-over-slf4j.version}</version>
+	</dependency>
+	
+	<!-- JPA/Hibernate -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-entitymanager</artifactId>
+		<version>${hibernate.version}</version>
+		<scope>compile</scope>
+	</dependency>
+	
+	<!-- Hibernate - java 8 support -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-java8</artifactId>
+		<version>${hibernate.version}</version>
+		<scope>compile</scope>
+	</dependency>
+	
+	<!-- MySQL Driver -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>${mysql-connector-java.version}</version>
+		<scope>provided</scope>
 	</dependency>
   </dependencies>
   

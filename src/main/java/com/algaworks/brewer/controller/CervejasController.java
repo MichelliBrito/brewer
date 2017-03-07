@@ -30,24 +30,4 @@ public class CervejasController {
 		
 		return "redirect:/cerveja";
 	}
-	
-	@RequestMapping("/cliente")
-	public String cadastroCliente(Cerveja cerveja){
-		return "cerveja/CadastroCliente";
-	}
-	
-	@RequestMapping("/usuario")
-	public String cadastroUsuario(Cerveja cerveja){
-		return "cerveja/CadastroUsuario";
-	}
-	
-	@RequestMapping("/cidade")
-	public String cadastroCidade(Cerveja cerveja){
-		return "cerveja/CadastroCidade";
-	}
-	
-	@RequestMapping("/estilo")
-	public String cadastroEstilo(Cerveja cerveja){
-		return "cerveja/CadastroEstilo";
-	}
 }
